@@ -5,15 +5,23 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer music;
     ImageButton playButton,pauseButton;
+    TextView start,stop;
+    SeekBar seekBar;
+    Handler mHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         playButton = findViewById(R.id.play);
         pauseButton = findViewById(R.id.pause);
+        start = findViewById(R.id.start);
+        stop = findViewById(R.id.stop);
+        seekBar = findViewById(R.id.progress);
+        mHandler = new Handler();
         getSupportActionBar();
         music = MediaPlayer.create(this, R.raw.jesus);
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -36,7 +48,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 playButton.setVisibility(View.VISIBLE);
                 pauseButton.setVisibility(View.INVISIBLE);
-                music.stop();
+                music.pause();
+            }
+        });
+       MainActivity.this.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.postDelayed(mRunnable,1000);
+
             }
         });
     }
@@ -68,9 +87,18 @@ public class MainActivity extends AppCompatActivity {
             case R.id.queue:
                 Toast.makeText(this, "queue opeining ", Toast.LENGTH_SHORT).show();
                 break;
-
-
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            if (music != null) {
+                int currentPosition = music.getCurrentPosition() / 1000;
+                seekBar.setProgress(currentPosition);
+            }
+            mHandler.postDelayed(this,100);
+        }
+    };
 }
