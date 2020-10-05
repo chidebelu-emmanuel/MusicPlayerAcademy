@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Share"
+        android:id="@+id/share"/>
+    <item android:title="Headphone and audio effects"
+        android:id="@+id/head"/>
+    <item android:title="Sleep Timer"
+        android:id="@+id/sleep"/>
+    <item android:title="Ringtone Editor"
+        android:id="@+id/edit"/>
+    <item android:title="Edit Song Info "
+        android:id="@+id/song"/>
+    <item android:title="Remove from queue"
+        android:id="@+id/queue"/>
+
+
+</menu>
