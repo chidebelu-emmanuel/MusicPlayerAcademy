@@ -45,8 +45,6 @@
                 android:layout_marginLeft="15dp"/>
         </LinearLayout>
 
-
-
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,24 +57,26 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#fff"
                 android:src="@drawable/ic_baseline_skip_previous_24" />
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/play"
-                    android:visibility="visible"
-                    android:backgroundTint="#fff"
-                    android:src="@drawable/ic_baseline_play_arrow_24" />
 
                 <ImageButton
+                    android:id="@+id/play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:id="@+id/pause"
                     android:backgroundTint="#fff"
-                    android:src="@drawable/ic_baseline_pause_24" />
+                    android:src="@drawable/ic_baseline_play_arrow_24"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#fff"
+                    android:src="@drawable/ic_baseline_pause_24"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
@@ -94,8 +94,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        app:menu="@menu/navmenu"
-        android:background="#ffff"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:background="#ffff"
+        app:menu="@menu/navmenu" />
 </RelativeLayout>

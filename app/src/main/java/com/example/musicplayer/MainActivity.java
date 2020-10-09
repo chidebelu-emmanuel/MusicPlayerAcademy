@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 playButton.setVisibility(View.VISIBLE);
+
                 pauseButton.setVisibility(View.INVISIBLE);
                 music.pause();
             }
