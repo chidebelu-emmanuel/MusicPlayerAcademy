@@ -9,11 +9,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     MediaPlayer music;
     ImageButton playButton,pauseButton;
+    TextView startTime, endTime;
+    SeekBar seekBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         playButton = findViewById(R.id.play);
         pauseButton = findViewById(R.id.pause);
+        startTime = findViewById(R.id.starter);
+        endTime = findViewById(R.id.ender);
+        seekBar = findViewById(R.id.SB);
         getSupportActionBar();
         music = MediaPlayer.create(this, R.raw.jesus);
         playButton.setOnClickListener(new View.OnClickListener() {
@@ -35,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 playButton.setVisibility(View.VISIBLE);
+
                 pauseButton.setVisibility(View.INVISIBLE);
                 music.stop();
             }

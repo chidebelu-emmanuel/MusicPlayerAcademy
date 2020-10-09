@@ -26,11 +26,35 @@
             android:layout_marginTop="200dp"
             android:src="@drawable/ic_baseline_hdr_strong_24" />
 
-        <ImageView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_baseline_minimize_24" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/starter"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="7dp"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <SeekBar
+                android:id="@+id/SB"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:id="@+id/ender"
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_marginRight="7dp"
+                android:textColor="#000"
+                android:textSize="15sp" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -44,24 +68,26 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#fff"
                 android:src="@drawable/ic_baseline_skip_previous_24" />
+
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-                <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/play"
-                    android:visibility="visible"
-                    android:backgroundTint="#fff"
-                    android:src="@drawable/ic_baseline_play_arrow_24" />
 
                 <ImageButton
+                    android:id="@+id/play"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:id="@+id/pause"
                     android:backgroundTint="#fff"
-                    android:src="@drawable/ic_baseline_pause_24" />
+                    android:src="@drawable/ic_baseline_play_arrow_24"
+                    android:visibility="visible" />
+
+                <ImageButton
+                    android:id="@+id/pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#fff"
+                    android:src="@drawable/ic_baseline_pause_24"
+                    android:visibility="gone" />
 
             </RelativeLayout>
 
@@ -79,8 +105,8 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
-        app:menu="@menu/navmenu"
-        android:background="#ffff"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_height="wrap_content" />
+        android:background="#ffff"
+        app:menu="@menu/navmenu" />
 </RelativeLayout>
